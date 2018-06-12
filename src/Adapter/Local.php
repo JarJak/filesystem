@@ -63,7 +63,7 @@ class Local extends LocalBase implements Capability\ImageInfo, Capability\Includ
     {
         $location = $this->applyPathPrefix($path);
 
-        if (!is_writable($location)) {
+        if (!file_exists($path) || !is_writable($location)) {
             return false;
         }
 
